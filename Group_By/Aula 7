@@ -1,0 +1,31 @@
+-- Criando o banco de dados
+CREATE DATABASE hortifruti;
+
+-- Usando o banco de dados
+USE hortifruti;
+
+-- Criação da tabela
+CREATE TABLE hortifruti(
+	id_frutas INTEGER NOT NULL,
+	frutas TEXT NOT NULL,
+	cor TEXT NOT NULL
+);
+
+-- inserir dados
+INSERT INTO hortifruti VALUES
+	(1, 'maca', 'vermelha'),
+	(2, 'abacaxi', 'laranja'),
+	(3, 'abacaxi', 'laranja'),
+	(4, 'kiwi', 'marrom');
+    
+-- Checagem de validação
+SELECT * FROM hortifruti;
+
+-- GROUP BY
+SELECT cor FROM hortifruti GROUP BY cor;
+
+-- GROUP BY com agregação
+SELECT cor, COUNT(*) FROM hortifruti GROUP BY cor;
+    
+-- count(distinct)
+SELECT COUNT(DISTINCT cor) FROM hortifruti;
