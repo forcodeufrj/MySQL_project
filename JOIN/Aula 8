@@ -1,0 +1,75 @@
+-- Criando o banco de dados
+CREATE DATABASE lojinha;
+
+-- Usando o banco de dados
+USE lojinha;
+
+-- Criando tabelas
+CREATE TABLE membros (
+	id_membros SMALLINT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	membro TEXT NOT NULL,
+	idade SMALLINT NOT NULL,
+	genero TEXT NOT NULL,
+	diretoria TEXT NOT NULL
+);
+
+CREATE TABLE produtos (
+	id_produto SMALLINT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	nome TEXT NOT NULL,
+	fornecedor TEXT NOT NULL,
+	id_membro_contatante SMALLINT NOT NULL,
+	FOREIGN KEY (id_membro_contatante) REFERENCES membros(id_membros), 
+	quantidade SMALLINT NOT NULL,
+	preco SMALLINT NOT NULL
+);
+
+-- Inserindo valores
+INSERT INTO membros VALUES
+	(1, 'mariana', 20, 'F', 'PRO'),
+	(2, 'ana', 19, 'F', 'PES'),
+	(3, 'eduarda', 23, 'F', 'PRE'),
+	(4, 'rodrigo', 21, 'M', 'MKT');
+
+INSERT INTO produtos VALUES
+	(1, 'copos', 'grafica', 1, 30, 15),
+	(2, 'camisas', 'grafica', 2, 20, 40),
+	(3, 'chaveiro', 'grafica', 3, 30, 10),
+	(4, 'adesivos', 'grafica', 1, 35, 5);
+
+-- Checagem de validação
+SELECT * FROM produtos;
+SELECT * FROM membros;
+
+-- INNER JOIN
+SELECT membros.membro, membros.diretoria, produtos.nome, produtos.preco
+FROM membros
+INNER JOIN produtos
+ON membros.id_membros = produtos.id_membro_contatante;
+
+-- LEFT JOIN
+SELECT membros.membro, membros.diretoria, produtos.nome, produtos.preco
+FROM membros
+LEFT JOIN produtos
+ON membros.id_membros = produtos.id_membro_contatante;
+
+-- RIGHT JOIN
+SELECT membros.membro, membros.diretoria, produtos.nome, produtos.preco
+FROM membros
+RIGHT JOIN produtos
+ON membros.id_membros = produtos.id_membro_contatante;
+
+-- CROSS JOIN
+SELECT membros.membro, membros.diretoria, produtos.nome, produtos.preco
+FROM membros
+CROSS JOIN produtos;
+
+-- FULL JOIN VIRA UNION
+SELECT membros.membro, membros.diretoria, produtos.nome, produtos.preco
+FROM membros
+RIGHT JOIN produtos
+ON membros.id_membros = produtos.id_membro_contatante
+UNION
+SELECT membros.membro, membros.diretoria, produtos.nome, produtos.preco
+FROM membros
+LEFT JOIN produtos
+ON membros.id_membros = produtos.id_membro_contatante;
