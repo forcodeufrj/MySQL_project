@@ -1,7 +1,7 @@
 # MySQL_project
 Esse repositório contém todos os códigos por trás do projeto de MySQL feito em 2024.
 
-<h2 style="color: #614ad3"> Aulas </h2>
+## Aulas
 1. Instalação e importação/criação de Banco de Dados
 2. Introdução ao MySQL
 3. Criação de Tabelas e Colunas (SELECT)
