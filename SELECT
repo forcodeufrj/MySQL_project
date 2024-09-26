@@ -1,0 +1,34 @@
+
+
+-- SELECT AS 
+
+SELECT id_membro_constante AS id_membro FROM produtos
+
+-- SELECT LIMIT
+
+SELECT * FROM projetos LIMIT 5;
+
+-- SELECT INTO
+
+CREATE TABLE membros_backup (
+    id_membros smallint NOT NULL AUTO_INCREMENT,
+    membro varchar(20) NOT NULL,
+    idade smallint NOT NULL,
+    genero text NOT NULL,
+    diretoria text NOT NULL,
+    id_projeto smallint NOT NULL,
+    PRIMARY KEY (id_membros),
+    FOREIGN KEY (id_projeto) REFERENCES projetos(id_projeto)
+);
+
+INSERT INTO membros_backup (id_membros, membro, idade, genero, diretoria, id_projeto)
+SELECT id_membros, membro, idade, genero, diretoria, id_projeto
+FROM membros;
+
+SELECT * INTO membros_backup FROM membros;
+
+-- DISTINCT
+
+SELECT DISTINCT genero FROM membros;
+
+SELECT DISTINCT membro, diretoria FROM membros;
