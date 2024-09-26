@@ -1,0 +1,9 @@
+
+-- sintaxe de criação de um banco qualquer
+CREATE DATABASE <nome>;
+
+-- exemplo
+CREATE DATABASE data_teste;
+
+-- excluindo um banco do MySQL
+DROP DATABASE data_teste;
