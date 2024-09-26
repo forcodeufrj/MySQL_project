@@ -1,0 +1,37 @@
+Crie uma tabela chamada clientes que tenha as seguintes colunas:
+
+id (INT, chave primária, autoincremento)
+nome (VARCHAR(50))
+idade (INT)
+cidade (VARCHAR(50))
+data_registro (DATE)
+
+1. Insira na tabela os seguintes dados:
+
+João Silva, 34, São Paulo, 2023-06-15
+Maria Souza, 28, Rio de Janeiro, 2023-06-20
+Carlos Mendes, 45, Belo Horizonte, 2023-06-22
+Ana Oliveira, 30, São Paulo, 2023-06-25
+
+2. Selecione todos os clientes que moram em São Paulo e têm mais de 30 anos
+
+
+3. Selecione todos os clientes e organize-os por idade de forma decrescente.
+
+
+4. Crie uma nova tabela chamada pedidos com as colunas:
+
+id_pedido (INT, chave primária, autoincremento)
+id_cliente (INT, chave estrangeira para clientes)
+valor_pedido (DECIMAL(10, 2))
+data_pedido (DATE)
+
+Adicione os seguintes dados: 
+INSERT INTO pedidos (id_cliente, valor_pedido, data_pedido)
+VALUES
+(1, 100.50, '2023-06-20'),
+(2, 250.00, '2023-06-25'),
+(3, 450.75, '2023-06-27'),
+(1, 150.00, '2023-06-28');
+
+Conte quantos pedidos foram realizados e qual é o valor médio dos pedidos.
