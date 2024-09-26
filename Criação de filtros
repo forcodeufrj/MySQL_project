@@ -1,0 +1,35 @@
+-- LIKE
+
+SELECT * FROM membros WHERE membro LIKE "%ana%";
+
+-- IN
+
+SELECT membro, id_projeto FROM membros WHERE id_projeto IN (1, 3, 5);
+
+-- BETWEEN 
+
+SELECT membro, idade FROM membros WHERE idade BETWEEN 20 AND 22;
+
+-- ORDER BY
+
+SELECT membro, idade FROM membros ORDER BY membro ASC;
+
+SELECT membro, idade FROM membros ORDER BY idade DESC;
+
+-- AND
+
+SELECT membro, idade, diretoria FROM membros WHERE diretoria = 'PES' AND idade > 20;
+
+SELECT nome_projeto, tempo_estimado_mes, quantidade_membros FROM projetos WHERE tempo_estimado_mes > 5 AND quantidade_membros > 3;
+
+-- OR
+
+SELECT membro, diretoria FROM membros WHERE diretoria = 'PRO' OR diretoria = 'MKT';
+
+SELECT nome_projeto, quantidade_membros, tempo_estimado_mes FROM projetos WHERE quantidade_membros = 2 OR tempo_estimado_mes = 6;
+
+-- NOT
+
+SELECT membro, diretoria FROM membros WHERE NOT diretoria = 'PES';
+
+SELECT nome_projeto, tempo_estimado_mes FROM projetos WHERE NOT tempo_estimado_mes = 7;
