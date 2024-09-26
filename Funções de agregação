@@ -1,0 +1,44 @@
+-- MIN
+
+SELECT MIN(idade) AS idade_minima
+FROM membros;
+
+SELECT MIN(tempo_estimado_mes) AS tempo_minimo
+FROM projetos;
+
+-- MAX
+
+SELECT MAX(idade) AS idade_maxima
+FROM membros;
+
+
+-- COUNT
+
+SELECT COUNT(*) AS total_membros
+FROM membros;
+
+
+SELECT COUNT(*) AS membros_mkt
+FROM membros
+WHERE diretoria = 'MKT';
+
+SELECT COUNT(*) AS membros_idade_20
+FROM membros
+WHERE idade = 20;
+
+SELECT COUNT(DISTINCT membro) AS membros_distintos
+FROM apadrinhamento;
+
+SELECT project_owner, COUNT(*) AS total_projetos
+FROM projetos
+GROUP BY project_owner;
+
+- SUM
+
+SELECT SUM(idade) AS total_idade
+FROM membros;
+
+- AVG
+
+SELECT AVG(idade) AS idade_media
+FROM membros;
