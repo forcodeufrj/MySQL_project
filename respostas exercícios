@@ -1,0 +1,43 @@
+--Resposta 1
+
+CREATE TABLE clientes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50),
+    idade INT,
+    cidade VARCHAR(50),
+    data_registro DATE
+);
+
+INSERT INTO clientes (nome, idade, cidade, data_registro)
+VALUES
+('João Silva', 34, 'São Paulo', '2023-06-15'),
+('Maria Souza', 28, 'Rio de Janeiro', '2023-06-20'),
+('Carlos Mendes', 45, 'Belo Horizonte', '2023-06-22'),
+('Ana Oliveira', 30, 'São Paulo', '2023-06-25');
+
+--Resposta 2
+
+SELECT * FROM clientes WHERE cidade = 'São Paulo' AND idade > 30;
+
+-- Resposta 3
+
+SELECT * FROM clientes ORDER BY idade DESC;
+
+-- Resposta 4
+
+CREATE TABLE pedidos (
+    id_pedido INT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT,
+    valor_pedido DECIMAL(10, 2),
+    data_pedido DATE,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id)
+);
+
+INSERT INTO pedidos (id_cliente, valor_pedido, data_pedido)
+VALUES
+(1, 100.50, '2023-06-20'),
+(2, 250.00, '2023-06-25'),
+(3, 450.75, '2023-06-27'),
+(1, 150.00, '2023-06-28');
+
+SELECT COUNT(*) AS total_pedidos, AVG(valor_pedido) AS valor_medio FROM pedidos;
