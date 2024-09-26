@@ -1,0 +1,53 @@
+
+-- INSERT INTO
+
+INSERT INTO apadrinhamento (membro, diretoria_membro, padrinho, diretoria_padrinho)
+VALUES ('Lucas', 'PES', 'Joao', 'PRO');
+
+
+-- INSERT INTO SELECT
+
+INSERT INTO projetos (nome_projeto, quantidade_membros, project_owner, tempo_estimado_mes)
+VALUES ('NewProject', 3, 'Maria', 5);
+
+INSERT INTO membros (membro, idade, genero, diretoria, id_projeto)
+SELECT membro, idade, genero, diretoria, 8
+FROM membros
+WHERE id_projeto = 1;
+
+-- DROP TABLE
+
+DROP TABLE IF EXISTS apadrinhamento;
+
+-- ALTER
+
+ALTER TABLE membros
+ADD COLUMN email VARCHAR(50);
+
+ALTER TABLE membros
+DROP COLUMN email;
+
+ALTER TABLE membros
+MODIFY COLUMN idade INT;
+
+-- UPDATE
+
+UPDATE membros
+SET idade = 20
+WHERE membro = 'Ana';
+
+UPDATE membros
+SET id_projeto = 6
+WHERE diretoria = 'MKT';
+
+-- DELETE
+
+DELETE FROM membros
+WHERE membro = 'Ana';
+
+DELETE FROM membros
+WHERE diretoria = 'MKT';
+
+
+-- excluindo todas as linhas da tabela
+DELETE FROM membros;
